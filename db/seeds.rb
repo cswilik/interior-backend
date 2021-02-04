@@ -45,3 +45,6 @@ yose = Park.create(name:"Yosemite National Park", description:"Not just a great 
 
 
 User.create(email:"test@test.com", name:'test', password: '123', bio:'testing', fav_park:'test park')
+
+Trip.create(user_id: User.first.id, park_id: Park.first.id, length_of_trip:"5 days", review:"It was chill", img_url: "https://www.nps.gov/articles/images/ACAD_1.jpg?maxwidth=1200&autorotate=false", likes: 0)
+Trip.create(user_id: User.first.id, park_id: Park.last.id, length_of_trip:"5 days", review:"It was chill", img_url: "https://www.nps.gov/articles/images/ACAD_1.jpg?maxwidth=1200&autorotate=false", likes: 0)
