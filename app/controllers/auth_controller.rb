@@ -1,7 +1,7 @@
 class AuthController < ApplicationController
 
     def login
-      user = User.first
+      user = User.last
       render json: user
     end
     

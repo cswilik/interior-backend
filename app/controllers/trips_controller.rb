@@ -10,6 +10,26 @@ class TripsController < ApplicationController
         render json: trip
     end 
 
+    def create
+        trip = Trip.create(trip_params)
+        render json: trip
+    end 
+
+    def update 
+        trip = Trip.find(params[:id])
+        trip.update(trip_params)
+        render json: trip
+    end 
+
+    def destroy
+        trip = Trip.find(params[:id])
+        trip.destroy
+        render json: trip
+    end
+
+  
+
+
 
     private 
 
