@@ -12,8 +12,12 @@ class TripsController < ApplicationController
 
     def create
         trip = Trip.create(trip_params)
+        image = Cloudinary::Uploader.upload(params[:img_url])
+        trip.update(img_url:image['url'])
         render json: trip
     end 
+
+
 
     def update 
         trip = Trip.find(params[:id])
