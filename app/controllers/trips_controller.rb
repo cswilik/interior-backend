@@ -22,7 +22,16 @@ class TripsController < ApplicationController
     def update 
         trip = Trip.find(params[:id])
         trip.update(trip_params)
+        image = Cloudinary::Uploader.upload(params[:img_url])
+        trip.update(img_url:image['url'])
         render json: trip
+    end 
+
+    def updateLikes 
+        trip = Trip.find(params[:id])
+        trip.update(trip_params)
+        render json: trip
+
     end 
 
     def destroy
