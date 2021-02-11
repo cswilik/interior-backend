@@ -12,9 +12,13 @@ class UsersController < ApplicationController
 
 
     def update 
-        # debugger
         user = User.find(params[:id])
         user.update(user_params)
+        render json: user
+    end 
+
+    def create
+        user = User.create(user_params)
         render json: user
     end 
 
