@@ -47,6 +47,6 @@ class TripsController < ApplicationController
     private 
 
     def trip_params 
-        params.permit(:user_id, :park_id, :length_of_trip, :review, :img_url, :likes)
+        params.permit(:user_id, :park_id, :length_of_trip, :review, :img_url, :likes, :accommodations, :what_to_pack)
     end 
 end
