@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    before_action :authorize, only: [:dashboard, :update]
 
     def index 
         users = User.all
@@ -12,9 +13,8 @@ class UsersController < ApplicationController
 
 
     def update 
-        user = User.find(params[:id])
-        user.update(user_params)
-        render json: user
+        @user.update(user_params)
+        render json: @user
     end 
 
     def create
@@ -38,10 +38,12 @@ class UsersController < ApplicationController
     # end 
 
     def dashboard
-        user = AuthorizeRequest.new(request.headers).user
-        if user
-            render json: user
-        else
+        @user
+    end 
+
+    def authorize 
+        @user = AuthorizeRequest.new(request.headers).user
+        unless @user
             render json: { error: "not authorized!"}, status: :unauthorized
         end 
     end 
