@@ -9,4 +9,6 @@ class ParksController < ApplicationController
         park = Park.find(params[:id])
         render json: park
     end 
+
+    
 end
