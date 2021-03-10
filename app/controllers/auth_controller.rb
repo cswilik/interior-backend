@@ -7,7 +7,7 @@ class AuthController < ApplicationController
         token = JWT.encode({user_id: user.id}, secret, "HS256")
         render json: {user: UserSerializer.new(user), token: token}
       else 
-        render json: {error: "invalid email or password"}
+        render json: {error: "invalid email or password"}, status: :unauthorized
       end 
     end
 
