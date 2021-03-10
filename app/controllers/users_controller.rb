@@ -38,7 +38,8 @@ class UsersController < ApplicationController
     # end 
 
     def dashboard
-        @user
+        @user.update(user_params)
+        render json: @user
     end 
 
     def authorize 
@@ -50,6 +51,6 @@ class UsersController < ApplicationController
 
     private 
     def user_params 
-        params.permit(:email, :name, :password, :bio, :fav_park, :junior_badge, :ranger_badge, :master_badge)
+        params.permit(:id, :email, :name, :password, :bio, :fav_park)
     end 
 end
