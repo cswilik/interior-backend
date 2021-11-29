@@ -22,20 +22,6 @@ class UsersController < ApplicationController
         render json: user
     end 
 
-    # def dashboard 
-    #     # read the token
-    #     begin
-    #         auth_headers = request.headers["Authorization"]
-    #         token = auth_headers.split.last
-    #         payload = JWT.decode(token, Rails.application.secrets.secret_key_base, true, {algorithm: 'HS256'})
-    #         # get the user id from the payload
-    #         user_id = payload[0]["user_id"]
-    #         user = User.find(user_id)
-    #         render json: user
-    #     rescue
-    #         render json: { error: "not authorized!"}, status: :unauthorized
-    #     end 
-    # end 
 
     def dashboard
         @user.update(user_params)
