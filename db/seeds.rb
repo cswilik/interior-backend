@@ -17,7 +17,7 @@ Trip.destroy_all
 Park.destroy_all
 
 api_key = 'j295OpZ72mKfiYq6t80uMx7YGkPXuzAL3UmciyDf'
-pry
+
 #first 50 parks
 api_resp1 = RestClient.get("https://developer.nps.gov/api/v1/parks?parkCode=acad,npsa,arch,badl,bibe,bisc,blca,brca,cany,care,cave,chis,cong,crla,cuva,deva,dena,drto,ever,gaar,jeff,glba,glac,grca,grte,grsa,grsm,gumo,havo,hosp,indu,isro,jotr,seki,lavo,pinn,redw,sagu,mora,pefo,romo,maca,lacl,wrst,katm,kefj,meve,kova&limit=50&start=0&api_key=#{api_key}")
 api_data1 = JSON.parse(api_resp1)
